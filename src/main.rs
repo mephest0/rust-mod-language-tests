@@ -1,23 +1,12 @@
-extern crate hlua;
-use hlua::Lua;
-use crate::lua::run_lua;
-
-use pyo3::prelude::*;
-use pyo3::types::IntoPyDict;
-
 mod lua;
 mod python;
 
 fn main() {
-    let mut lua = Lua::new();
+    let number_of_runs = 500000;
 
-    lua::lua_init(&mut lua);
-
-    for _ in 0..10 {
-        let x = run_lua(&mut lua, 10);
-
-        println!("(lua says) x: {}", x);
-    }
-
-    python::python(10);
+    println!("start lua");
+    lua::lua(number_of_runs);
+    println!("lua complete, start Python");
+    python::python(number_of_runs);
+    println!("Python complete");
 }

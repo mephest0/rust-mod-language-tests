@@ -6,7 +6,6 @@ pub fn python(i: i32) {
         let fun = PyModule::from_code(
             py,
             r#"def fact(n):
-    print(str(n))
     return 1 if (n==1 or n==0) else n * fact(n - 1);"#,
             "factorial.py",
             "factorial",
