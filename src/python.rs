@@ -15,10 +15,13 @@ pub fn python(i: i32) {
             "factorial",
         )?.getattr("fact")?;
 
+        let mut x: i32 = -1;
         // start time
         for _ in 0..i {
-            let _x: i32 = fun.call1((10,))?.extract()?;
+            x = fun.call1((12,))?.extract()?;
         }
+
+        println!("(py) last result {}", x);
         // stop time
 
         Ok(())

@@ -6,9 +6,12 @@ pub fn lua(i: i32) {
 
     lua_init(&mut lua);
 
+    let mut x: i32 = -1;
     for _ in 0..i {
-        let _x = run_lua(&mut lua, 10);
+        x = run_lua(&mut lua, 12);
     }
+
+    println!("(lua) last result {}", x);
 }
 
 fn lua_init(lua: &mut Lua) {
