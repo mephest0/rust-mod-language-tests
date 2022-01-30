@@ -7,3 +7,7 @@ edition = "2021"
 
 [dependencies]
 hlua = "0.4.1"
+
+[dependencies.pyo3]
+version = "0.15.1"
+features = ["auto-initialize"]
