@@ -13,7 +13,7 @@ end").unwrap();
     lua
 }
 
-pub fn run_lua(mut lua: Lua, n: i32) -> i32 {
+pub fn run_lua(mut lua: &mut Lua, n: i32) -> i32 {
     lua.set("x", n);
 
     lua.execute::<()>("x = factorial(x)").unwrap();

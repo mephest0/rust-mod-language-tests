@@ -11,7 +11,9 @@ fn main() {
 
     lua = lua::lua_init(lua);
 
-    let x = run_lua(lua, 10);
+    for _ in 0..10 {
+        let x = run_lua(&mut lua, 10);
 
-    println!("(lua says) x: {}", x);
+        println!("(lua says) x: {}", x);
+    }
 }
