@@ -1,6 +1,6 @@
 use hlua::Lua;
 
-pub fn lua_init(mut lua: Lua) -> Lua {
+pub fn lua_init(mut lua: &mut Lua) {
     // load function
     lua.execute::<()>("function factorial(n)
     local x = 1
@@ -9,8 +9,6 @@ pub fn lua_init(mut lua: Lua) -> Lua {
     end
     return x
 end").unwrap();
-
-    lua
 }
 
 pub fn run_lua(mut lua: &mut Lua, n: i32) -> i32 {

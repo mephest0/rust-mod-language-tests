@@ -9,7 +9,7 @@ fn main() {
 
     let mut lua = Lua::new();
 
-    lua = lua::lua_init(lua);
+    lua::lua_init(&mut lua);
 
     for _ in 0..10 {
         let x = run_lua(&mut lua, 10);
