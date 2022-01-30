@@ -1,5 +1,6 @@
 use pyo3::{PyResult, Python};
 use pyo3::prelude::PyModule;
+use crate::timer;
 
 pub fn python(i: i32) {
     let _x: PyResult<()> = Python::with_gil(|py| {
@@ -16,10 +17,12 @@ pub fn python(i: i32) {
         )?.getattr("fact")?;
 
         let mut x: i32 = -1;
-        // start time
+
+        timer::start();
         for _ in 0..i {
             x = fun.call1((12,))?.extract()?;
         }
+        timer::stop("Python, factorial, iterative");
 
         println!("(py) last result {}", x);
         // stop time

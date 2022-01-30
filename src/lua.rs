@@ -1,5 +1,6 @@
 extern crate hlua;
 use hlua::Lua;
+use crate::timer;
 
 pub fn lua(i: i32) {
     let mut lua = Lua::new();
@@ -7,9 +8,11 @@ pub fn lua(i: i32) {
     lua_init(&mut lua);
 
     let mut x: i32 = -1;
+    timer::start();
     for _ in 0..i {
         x = run_lua(&mut lua, 12);
     }
+    timer::stop("Lua, factorial, iterative");
 
     println!("(lua) last result {}", x);
 }
