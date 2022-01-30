@@ -6,7 +6,11 @@ pub fn python(i: i32) {
         let fun = PyModule::from_code(
             py,
             r#"def fact(n):
-    return 1 if (n==1 or n==0) else n * fact(n - 1);"#,
+    ret = 1
+    for i in range(2, n + 1):
+        ret = ret * i
+
+    return ret"#,
             "factorial.py",
             "factorial",
         )?.getattr("fact")?;
