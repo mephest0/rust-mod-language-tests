@@ -1,5 +1,6 @@
 extern crate hlua;
 use hlua::Lua;
+use crate::lua::run_lua;
 
 mod lua;
 
@@ -10,12 +11,7 @@ fn main() {
 
     lua = lua::lua_init(lua);
 
-    // call function
-    lua.set("x", -1);
-    lua.execute::<()>("x = factorial(10)").unwrap();
-
-    // get result
-    let x: i32 = lua.get("x").unwrap();
+    let x = run_lua(lua, 10);
 
     println!("(lua says) x: {}", x);
 }
