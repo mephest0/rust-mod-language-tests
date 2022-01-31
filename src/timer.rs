@@ -10,24 +10,28 @@ pub fn start() {
     }
 }
 
-pub fn stop(message: &str) {
+pub fn stop(message: &str) -> i32 {
     unsafe {
         if !IS_STARTED {
             println!("lol - stopping un-started timer");
 
-            return;
+            return -1;
         }
     }
 
     let now = SystemTime::now();
 
     unsafe {
+        let dt = now
+            .duration_since(STARTED_TIME)
+            .expect("wtf 4981276")
+            .as_millis();
+
         IS_STARTED = false;
         println!("{} | {:?}ms",
                  message,
-                 now
-                     .duration_since(STARTED_TIME)
-                     .expect("wtf 4981276")
-                     .as_millis());
+                 dt);
+
+        dt as i32
     }
 }
