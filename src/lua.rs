@@ -3,7 +3,7 @@ use hlua::Lua;
 use crate::loader::load_file;
 use crate::timer;
 
-pub fn lua(i: i32) {
+pub fn lua_factorial_iterative(i: i32) {
     let mut lua = Lua::new();
 
     lua_init(&mut lua);

@@ -3,7 +3,7 @@ use pyo3::prelude::PyModule;
 use crate::loader::load_file;
 use crate::timer;
 
-pub fn python(i: i32) {
+pub fn python_factorial_iterative(i: i32) {
     let code = load_file("scripts/factorial.py");
 
     let _x: PyResult<()> = Python::with_gil(|py| {
@@ -18,7 +18,6 @@ pub fn python(i: i32) {
         timer::stop("Python, factorial, iterative");
 
         println!("(py) last result {}", x);
-        // stop time
 
         Ok(())
     });
