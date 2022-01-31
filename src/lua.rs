@@ -1,5 +1,6 @@
 extern crate hlua;
 use hlua::Lua;
+use crate::loader::load_file;
 use crate::timer;
 
 pub fn lua(i: i32) {
@@ -18,14 +19,10 @@ pub fn lua(i: i32) {
 }
 
 fn lua_init(lua: &mut Lua) {
+    let code = load_file("src/scripts/factorial.lua");
+
     // load function
-    lua.execute::<()>("function factorial(n)
-    local x = 1
-    for i = 2, n do
-        x = x * i
-    end
-    return x
-end").unwrap();
+    lua.execute::<()>(&code).unwrap();
 }
 
 fn run_lua(lua: &mut Lua, n: i32) -> i32 {

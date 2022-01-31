@@ -1,6 +1,7 @@
 mod lua;
 mod python;
 mod timer;
+mod loader;
 
 fn main() {
     let number_of_runs = 5_000_000;
