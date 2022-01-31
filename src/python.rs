@@ -4,7 +4,7 @@ use crate::loader::load_file;
 use crate::timer;
 
 pub fn python(i: i32) {
-    let code = load_file("src/scripts/factorial.py");
+    let code = load_file("scripts/factorial.py");
 
     let _x: PyResult<()> = Python::with_gil(|py| {
         let fun = PyModule::from_code(py, &code, "factorial.py", "factorial")?.getattr("fact")?;

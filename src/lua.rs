@@ -19,7 +19,7 @@ pub fn lua(i: i32) {
 }
 
 fn lua_init(lua: &mut Lua) {
-    let code = load_file("src/scripts/factorial.lua");
+    let code = load_file("scripts/factorial.lua");
 
     // load function
     lua.execute::<()>(&code).unwrap();
