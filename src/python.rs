@@ -53,7 +53,7 @@ pub fn load_data(v: &Vec<i32>, get: i32) {
 
         let message: String = ("Python load ".to_owned() + &v.len().to_string()) + &" i32s".to_owned();
         timer::stop(&message);
-        println!("(py) loaded #{}: {} ", get, result);
+        println!("(py) getting #{}: {} ", get, result);
 
         Ok(())
     }).unwrap();
