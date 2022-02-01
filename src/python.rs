@@ -15,9 +15,9 @@ pub fn python_factorial_iterative(i: i32) {
         for _ in 0..i {
             x = fun.call1((12,))?.extract()?;
         }
-        timer::stop("Python, factorial, iterative");
 
-        println!("(py) last result {}", x);
+        timer::stop("Python\tfactorial\titerative");
+        println!("(py) last result {} ", x);
 
         Ok(())
     });

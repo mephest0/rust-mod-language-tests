@@ -28,9 +28,7 @@ pub fn stop(message: &str) -> i32 {
             .as_millis();
 
         IS_STARTED = false;
-        println!("{} | {:?}ms",
-                 message,
-                 dt);
+        print!("{} | {:?}ms | {}s\t\t", message, dt, dt / 1000);
 
         dt as i32
     }

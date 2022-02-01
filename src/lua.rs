@@ -13,9 +13,9 @@ pub fn lua_factorial_iterative(i: i32) {
     for _ in 0..i {
         x = run_lua(&mut lua, 12);
     }
-    timer::stop("Lua, factorial, iterative");
 
-    println!("(lua) last result {}", x);
+    timer::stop("Lua\t\tfactorial\titerative");
+    println!("(lua) last result {} ", x);
 }
 
 fn lua_init(lua: &mut Lua) {
